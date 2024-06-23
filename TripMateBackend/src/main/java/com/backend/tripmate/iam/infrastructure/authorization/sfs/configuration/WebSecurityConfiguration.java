@@ -71,7 +71,7 @@ public class WebSecurityConfiguration {
         // CORS default configuration
         http.cors(configurer -> configurer.configurationSource(request -> {
             CorsConfiguration cors = new CorsConfiguration();
-            cors.setAllowedOrigins(List.of("*"));
+            cors.setAllowedOrigins(List.of("http://localhost:4200", "http://vps-4193906-x.dattaweb.com:8080", "http://190.239.59.223:4200/", "https://tripmateupc.netlify.app"));
             cors.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
             cors.setAllowedHeaders(List.of("*"));
             return cors;
