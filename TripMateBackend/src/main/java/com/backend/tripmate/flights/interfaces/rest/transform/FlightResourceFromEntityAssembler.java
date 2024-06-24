@@ -8,6 +8,7 @@ public class FlightResourceFromEntityAssembler {
         FlightResource resource = new FlightResource();
         resource.setIdVuelo(flight.getIdVuelo());
         resource.setNombreAerolinea(flight.getNombreAerolinea());
+        resource.setImagePath(flight.getImagePath());
         resource.setDescripcion(flight.getDescripcion());
         resource.setPrecio(flight.getPrecio());
         return resource;

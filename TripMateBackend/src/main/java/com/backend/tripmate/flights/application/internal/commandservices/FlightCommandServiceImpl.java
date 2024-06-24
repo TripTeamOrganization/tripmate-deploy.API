@@ -21,6 +21,7 @@ public class FlightCommandServiceImpl {
     public void handle(CreateFlightCommand createFlightCommand) {
         Flight flight = new Flight();
         flight.setNombreAerolinea(createFlightCommand.getNombreAerolinea());
+        flight.setImagePath(createFlightCommand.getImagePath());
         flight.setDescripcion(createFlightCommand.getDescripcion());
         flight.setPrecio(createFlightCommand.getPrecio());
         flightRepository.save(flight);
@@ -31,6 +32,7 @@ public class FlightCommandServiceImpl {
         if (optionalFlight.isPresent()) {
             Flight flight = optionalFlight.get();
             flight.setNombreAerolinea(updateFlightCommand.getNombreAerolinea());
+            flight.setImagePath(updateFlightCommand.getImagePath());
             flight.setDescripcion(updateFlightCommand.getDescripcion());
             flight.setPrecio(updateFlightCommand.getPrecio());
             flightRepository.save(flight);

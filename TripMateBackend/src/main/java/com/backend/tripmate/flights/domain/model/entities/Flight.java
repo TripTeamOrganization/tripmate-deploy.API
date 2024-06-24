@@ -10,6 +10,7 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idVuelo;
     private String nombreAerolinea;
+    private String imagePath;
     @Column(name = "descripcion", nullable = false, length = 1500)
     private String descripcion;
     private String precio;
@@ -26,6 +27,14 @@ public class Flight {
 
     public String getNombreAerolinea() {
         return nombreAerolinea;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public void setNombreAerolinea(String nombreAerolinea) {

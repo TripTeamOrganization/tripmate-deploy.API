@@ -3,6 +3,7 @@ package com.backend.tripmate.flights.interfaces.rest.resources;
 public class FlightResource {
     private int idVuelo;
     private String nombreAerolinea;
+    private String imagePath;
     private String descripcion;
     private String precio;
 ;
@@ -24,6 +25,13 @@ public class FlightResource {
         this.nombreAerolinea = nombreAerolinea;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 
     public String getDescripcion() {
         return descripcion;
