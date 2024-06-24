@@ -29,27 +29,20 @@ public class AuthenticationController {
     }
 
     @PostMapping("/sign-up")
-    public ResponseEntity<Object> signUp(@RequestBody SignUpResource resource) {
+    public ResponseEntity<UserResource> signUp(@RequestBody SignUpResource resource) {
         var signUpCommand = SignUpCommandFromResourceAssembler.toCommandFromResource(resource);
         var user = userCommandService.handle(signUpCommand);
-        if (user.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("El usuario ya existe");
-        }
+        if (user.isEmpty()) return ResponseEntity.badRequest().build();
         var userResource = UserResourceFromEntityAssembler.toResourceFromEntity(user.get());
         return new ResponseEntity<>(userResource, HttpStatus.CREATED);
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<Object> signIn(@RequestBody SignInResource resource) {
+    public ResponseEntity<AuthenticatedUserResource> signIn(@RequestBody SignInResource resource) {
         var signInCommand = SignInCommandFromResourceAssembler.toCommandFromResource(resource);
         var authenticatedUser = userCommandService.handle(signInCommand);
-        if (authenticatedUser.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales no válidas");
-        }
-        var authenticatedUserResource = AuthenticatedUserResourceFromEntityAssembler.toResourceFromEntity(
-                authenticatedUser.get().getLeft(),
-                authenticatedUser.get().getRight()
-        );
+        if (authenticatedUser.isEmpty()) return ResponseEntity.notFound().build();
+        var authenticatedUserResource = AuthenticatedUserResourceFromEntityAssembler.toResourceFromEntity(authenticatedUser.get().getLeft(), authenticatedUser.get().getRight());
         return ResponseEntity.ok(authenticatedUserResource);
     }
 }

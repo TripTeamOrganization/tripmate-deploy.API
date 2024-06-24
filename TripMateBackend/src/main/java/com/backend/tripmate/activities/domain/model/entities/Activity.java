@@ -46,4 +46,12 @@ public class Activity {
         this.price = price;
         return this;
     }
+
+    public Activity(String name, String imagePath, String description, String location, String price) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.description = description;
+        this.location = location;
+        this.price = price;
+    }
 }

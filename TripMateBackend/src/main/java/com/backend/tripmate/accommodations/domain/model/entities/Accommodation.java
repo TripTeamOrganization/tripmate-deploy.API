@@ -46,4 +46,12 @@ public class Accommodation {
         this.price = price;
         return this;
     }
+    public Accommodation(String name, String imagePath, String description, String ubicacion, String price) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.description = description;
+        this.ubicacion = ubicacion;
+        this.price = price;
+    }
+
 }
