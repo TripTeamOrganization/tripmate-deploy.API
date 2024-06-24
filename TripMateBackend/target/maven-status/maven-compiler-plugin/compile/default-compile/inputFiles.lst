@@ -70,6 +70,7 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\flights\interfaces\rest\transform\FlightResourceFromEntityAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\activities\domain\services\ActivityCommandService.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\flights\domain\model\queries\GetAllFlightsQuery.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\importabledata\MyImportServiceClient.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\activities\interfaces\rest\transform\CreateActivityCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\activities\domain\commands\UpdateActivityCommand.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\application\internal\commandservices\EnrollmentCommandServiceImpl.java
@@ -104,6 +105,7 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\domain\model\entities\Restaurant.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\aggregates\User.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\interfaces\rest\transform\DeleteRestaurantCommandFromResourceAssembler.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\importabledata\ImportService.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\infrastructure\persistence\jpa\repositories\RestaurantRepository.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\infrastructure\persistence\jpa\repositories\AccommodationRepository.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate-deploy.API\TripMateBackend\src\main\java\com\backend\tripmate\BackendApplication.java
