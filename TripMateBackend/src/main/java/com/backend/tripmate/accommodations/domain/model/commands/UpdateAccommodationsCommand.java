@@ -2,13 +2,22 @@ package com.backend.tripmate.accommodations.domain.model.commands;
 
 public class UpdateAccommodationsCommand {
     private Long id;
-    private String nombre;
-    private String imagen;
-    private String descripcion;
+    private String name;
+    private String imagePath;
+    private String description;
     private String ubicacion;
-    private String precio;
+    private String price;
 
+    public UpdateAccommodationsCommand(Long id, String name, String imagePath, String description, String ubicacion, String price) {
+        this.id = id;
+        this.name = name;
+        this.imagePath = imagePath;
+        this.description = description;
+        this.ubicacion = ubicacion;
+        this.price = price;
+    }
     // Getters and Setters
+
     public Long getId() {
         return id;
     }
@@ -17,28 +26,28 @@ public class UpdateAccommodationsCommand {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getImagen() {
-        return imagen;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUbicacion() {
@@ -49,11 +58,11 @@ public class UpdateAccommodationsCommand {
         this.ubicacion = ubicacion;
     }
 
-    public String getPrecio() {
-        return precio;
+    public String getPrice() {
+        return price;
     }
 
-    public void setPrecio(String precio) {
-        this.precio = precio;
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

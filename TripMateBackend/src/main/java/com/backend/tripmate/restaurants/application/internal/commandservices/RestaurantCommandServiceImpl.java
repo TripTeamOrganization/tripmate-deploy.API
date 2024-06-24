@@ -37,7 +37,7 @@ public class RestaurantCommandServiceImpl implements RestaurantCommandService {
         }
         var restaurantToUpdate = result.get();
         try {
-            var updatedRestaurant = restaurantRepository.save(restaurantToUpdate.updateInformation(command.name(), command.image(), command.locationCost(), command.mustTry()));
+            var updatedRestaurant = restaurantRepository.save(restaurantToUpdate.updateInformation(command.name(), command.imagePath(), command.locationCost(), command.mustTry()));
             return Optional.of(updatedRestaurant);
         } catch (Exception e) {
             throw new IllegalArgumentException("Error while updating restaurant: " + e.getMessage());
@@ -51,7 +51,7 @@ public class RestaurantCommandServiceImpl implements RestaurantCommandService {
         if(command.name() == null) {
             throw new IllegalArgumentException("Restaurant name is required");
         }
-        if(command.image() == null) {
+        if(command.imagePath() == null) {
             throw new IllegalArgumentException("Restaurant image is required");
         }
         if(command.locationCost() == null) {

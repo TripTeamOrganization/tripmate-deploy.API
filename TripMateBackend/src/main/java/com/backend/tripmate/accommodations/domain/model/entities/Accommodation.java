@@ -1,5 +1,6 @@
 package com.backend.tripmate.accommodations.domain.model.entities;
 
+import com.backend.tripmate.accommodations.domain.model.commands.CreateAccommodationsCommand;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,4 +27,23 @@ public class Accommodation {
 
     @Column(name = "precio", length = 80, nullable = false)
     private String price;
+
+    public Accommodation() {}
+
+    public Accommodation(CreateAccommodationsCommand command) {
+        this.name = command.getName();
+        this.imagePath = command.getImagePath();
+        this.description = command.getDescription();
+        this.ubicacion = command.getUbicacion();
+        this.price = command.getPrice();
+    }
+
+    public Accommodation updateInformation(String name, String imagePath, String description, String ubicacion, String price) {
+        this.name = name;
+        this.imagePath = imagePath;
+        this.description = description;
+        this.ubicacion = ubicacion;
+        this.price = price;
+        return this;
+    }
 }

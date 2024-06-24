@@ -6,6 +6,13 @@ public class CreateFlightCommand {
     private String descripcion;
     private String precio;
 
+    public CreateFlightCommand(String nombreAerolinea, String imagePath, String descripcion, String precio) {
+        this.nombreAerolinea = nombreAerolinea;
+        this.imagePath = imagePath;
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
+
     // Getters and Setters
     public String getNombreAerolinea() {
         return nombreAerolinea;

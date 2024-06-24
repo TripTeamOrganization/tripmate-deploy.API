@@ -8,7 +8,7 @@ public class UpdateRestaurantCommandFromResourceAssembler {
         return new UpdateRestaurantCommand(
             id,
             resource.name(),
-            resource.image(),
+            resource.imagePath(),
             resource.locationCost(),
             resource.mustTry()
         );

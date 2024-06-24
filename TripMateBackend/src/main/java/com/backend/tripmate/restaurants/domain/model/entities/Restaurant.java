@@ -15,10 +15,10 @@ public class Restaurant {
     @Column(name = "nombre", length = 50, nullable = false)
     private String name;
 
-    @Column(name = "imagen", length = 50, nullable = false)
-    private String image;
+    @Column(name = "imagePath", length = 500, nullable = false)
+    private String imagePath;
 
-    @Column(name = "locationCost", length = 50, nullable = false)
+    @Column(name = "locationCost", length = 500, nullable = false)
     private String locationCost;
 
     @Column(name = "mustTry", length = 50, nullable = false)
@@ -26,7 +26,7 @@ public class Restaurant {
 
     public Restaurant(CreateRestaurantCommand command) {
         this.name = command.name();
-        this.image = command.image();
+        this.imagePath = command.imagePath();
         this.locationCost = command.locationCost();
         this.mustTry = command.mustTry();
     }
@@ -35,9 +35,9 @@ public class Restaurant {
 
     }
 
-    public Restaurant updateInformation(String name, String image, String locationCost, String mustTry) {
+    public Restaurant updateInformation(String name, String imagePath, String locationCost, String mustTry) {
         this.name = name;
-        this.image = image;
+        this.imagePath = imagePath;
         this.locationCost = locationCost;
         this.mustTry = mustTry;
         return this;

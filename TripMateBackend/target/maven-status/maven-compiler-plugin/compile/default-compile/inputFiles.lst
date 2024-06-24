@@ -7,11 +7,13 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\ja
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\reservation\domain\model\entities\PaymentMethod.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\resources\SignInResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\interfaces\rest\resources\RestaurantResource.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\interfaces\rest\resources\UpdateAccomodatonsResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\infrastructure\authorization\sfs\model\UserDetailsImpl.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\domain\services\RestaurantCommandService.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\queries\GetAllUsersQuery.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\application\internal\outboundservices\hashing\HashingService.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\ActivityController.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\flights\interfaces\rest\resources\UpdateFlightResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\transform\AuthenticatedUserResourceFromEntityAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\infrastructure\persistence\jpa\repositories\RestaurantRepository.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\queries\GetUserByIdQuery.java
@@ -21,6 +23,7 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\ja
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\interfaces\rest\AccommodationController.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\entities\Role.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\infrastructure\authorization\sfs\pipeline\UnauthorizedRequestHandlerEntryPoint.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\interfaces\rest\transform\UpdateAccomodationsCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\queries\GetAllRolesQuery.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\flights\application\internal\queryservices\FlightQueryService.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\resources\RoleResource.java
@@ -38,6 +41,7 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\ja
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\transform\UserResourceFromEntityAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\transform\SignUpCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\queries\GetRoleByNameQuery.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\interfaces\rest\resources\CreateAccomodationsResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\application\internal\queryservices\ActivityQueryServiceImpl.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\reservation\application\internal\commandservices\ReservationQueryServiceImpl.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\reservation\infrastructure\persistence\jpa\repositories\ReservationRepository.java
@@ -67,6 +71,7 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\ja
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\domain\model\queries\GetAllActivitiesQuery.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\reservation\infrastructure\persistence\jpa\repositories\PriceDetailsRepository.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\interfaces\rest\transform\AccommodationResourceFromEntityAssembler.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\flights\interfaces\rest\transform\DeleteFlightsCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\infrastructure\tokens\jwt\services\TokenServiceImpl.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\commands\SignInCommand.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\UsersController.java
@@ -78,6 +83,7 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\ja
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\domain\commands\DeleteActivityCommand.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\services\UserCommandService.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\shared\infrastructure\persistence\jpa\configuration\strategy\SnakeCaseWithPluralizedTablePhysicalNamingStrategy.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\flights\interfaces\rest\resources\DeleteFlightResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\infrastructure\authorization\sfs\pipeline\BearerAuthorizationRequestFilter.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\application\internal\commandservices\RoleCommandServiceImpl.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\domain\model\queries\GetAllAccommodationsQuery.java
@@ -117,13 +123,18 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\ja
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\reservation\ReservationController.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\interfaces\rest\resources\ActivityResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\transform\RoleResourceFromEntityAssembler.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\flights\interfaces\rest\resources\CreateFlightResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\interfaces\rest\resources\CreateActivityResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\reservation\domain\model\commands\CreateReservationCommand.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\valueobjects\Roles.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\interfaces\rest\transform\DeleteAccomodationsCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\domain\services\AccommodationQueryService.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\interfaces\rest\resources\DeleteAccomodationsResource.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\RolesController.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\services\RoleCommandService.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\interfaces\rest\transform\CreateAccomodationsCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\domain\model\queries\GetActivitiesByIdQuery.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\domain\model\queries\GetAccommodationByIdQuery.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\domain\model\commands\UpdateRestaurantCommand.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\interfaces\rest\transform\SignInCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\interfaces\rest\transform\RestaurantResourceFromEntityAssembler.java
@@ -136,9 +147,11 @@ D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\ja
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\infrastructure\authorization\sfs\model\UsernamePasswordAuthenticationTokenBuilder.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\domain\model\commands\SignUpCommand.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\interfaces\rest\resources\UpdateActivityResource.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\flights\interfaces\rest\transform\UpdateFlightsCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\accommodations\domain\model\commands\UpdateAccommodationsCommand.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\interfaces\rest\transform\DeleteActivityCommandFromResourceAssembler.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\iam\application\internal\queryservices\UserQueryServiceImpl.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\activities\infrastructure\persistence\jpa\repositories\ActivityRepository.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\reservation\domain\model\entities\PriceDetails.java
 D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\restaurants\domain\services\RestaurantQueryService.java
+D:\U\Ciclo 2024-01\Open-Source\Repositories\tripmate\TripMateBackend\src\main\java\com\backend\tripmate\flights\interfaces\rest\transform\CreateFlightsCommandFromResourceAssembler.java

@@ -1,7 +1,7 @@
 package com.backend.tripmate.accommodations.interfaces.rest;
 
 import com.backend.tripmate.accommodations.application.internal.commandservices.AccommodationCommandServiceImpl;
-import com.backend.tripmate.accommodations.application.internal.queryservices.GetAccommodationByIdQuery;
+import com.backend.tripmate.accommodations.domain.model.queries.GetAccommodationByIdQuery;
 import com.backend.tripmate.accommodations.domain.model.commands.CreateAccommodationsCommand;
 import com.backend.tripmate.accommodations.domain.model.commands.DeleteAccommodationsCommand;
 import com.backend.tripmate.accommodations.domain.model.commands.UpdateAccommodationsCommand;
@@ -9,7 +9,10 @@ import com.backend.tripmate.accommodations.domain.model.entities.Accommodation;
 import com.backend.tripmate.accommodations.domain.model.queries.GetAllAccommodationsQuery;
 import com.backend.tripmate.accommodations.domain.services.AccommodationQueryService;
 import com.backend.tripmate.accommodations.interfaces.rest.resources.AccommodationResource;
+import com.backend.tripmate.accommodations.interfaces.rest.resources.UpdateAccomodatonsResource;
 import com.backend.tripmate.accommodations.interfaces.rest.transform.AccommodationResourceFromEntityAssembler;
+import com.backend.tripmate.accommodations.interfaces.rest.transform.UpdateAccomodationsCommandFromResourceAssembler;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,28 +44,53 @@ public class AccommodationController {
     }
 
     @GetMapping("/{id}")
-    public Accommodation getAccommodationById(@PathVariable Long id) {
+    public ResponseEntity<Accommodation> getAccommodationById(@PathVariable Long id) {
         GetAccommodationByIdQuery query = new GetAccommodationByIdQuery(id);
-        return accommodationCommandService.getAccommodationById(query);
+        var accommodation = accommodationCommandService.getAccommodationById(query);
+        if (accommodation.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(accommodation.get());
     }
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> createAccommodation(@RequestBody CreateAccommodationsCommand command) {
-        accommodationCommandService.createAccommodation(command);
-        return ResponseEntity.ok().build();
+        try {
+            accommodationCommandService.handle(command);
+            return ResponseEntity.status(HttpStatus.CREATED).build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @PutMapping(value = "/{id}", consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> updateAccommodation(@PathVariable Long id, @RequestBody UpdateAccommodationsCommand command) {
-        command.setId(id);
-        accommodationCommandService.updateAccommodation(command);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Void> updateAccommodation(@PathVariable Long id, @RequestBody UpdateAccomodatonsResource resource) {
+        try {
+            UpdateAccommodationsCommand command = UpdateAccomodationsCommandFromResourceAssembler.toCommandFromResource(id, resource);
+            accommodationCommandService.handle(command);
+            return ResponseEntity.ok().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteAccommodation(@PathVariable Long id) {
-        var command = new DeleteAccommodationsCommand(id);
-        accommodationCommandService.deleteAccommodation(command);
-        return ResponseEntity.ok().build();
+        try {
+            var command = new DeleteAccommodationsCommand(id);
+            accommodationCommandService.handle(command);
+            return ResponseEntity.ok().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 }

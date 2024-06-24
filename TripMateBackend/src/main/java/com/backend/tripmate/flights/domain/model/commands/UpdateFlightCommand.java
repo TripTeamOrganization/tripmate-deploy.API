@@ -7,6 +7,13 @@ public class UpdateFlightCommand {
     private String descripcion;
     private String precio;
 
+    public UpdateFlightCommand(int id, String nombreAerolinea, String imagePath, String descripcion, String precio) {
+        this.id = id;
+        this.nombreAerolinea = nombreAerolinea;
+        this.imagePath = imagePath;
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
 
     public int getId() {
         return id;

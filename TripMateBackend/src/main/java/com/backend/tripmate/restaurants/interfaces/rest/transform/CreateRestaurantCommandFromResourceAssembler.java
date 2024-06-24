@@ -7,7 +7,7 @@ public class CreateRestaurantCommandFromResourceAssembler {
     public static CreateRestaurantCommand toCommandFromResource(CreateRestaurantResource resource) {
         return new CreateRestaurantCommand(
             resource.name(),
-            resource.image(),
+            resource.imagePath(),
             resource.locationCost(),
             resource.mustTry()
         );

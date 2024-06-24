@@ -5,6 +5,6 @@ import com.backend.tripmate.restaurants.interfaces.rest.resources.RestaurantReso
 
 public class RestaurantResourceFromEntityAssembler {
     public static RestaurantResource toResourceFromEntity(Restaurant restaurant) {
-        return new RestaurantResource(restaurant.getId(), restaurant.getName(), restaurant.getImage(), restaurant.getLocationCost(), restaurant.getMustTry());
+        return new RestaurantResource(restaurant.getId(), restaurant.getName(), restaurant.getImagePath(), restaurant.getLocationCost(), restaurant.getMustTry());
     }
 }
