@@ -22,10 +22,6 @@ public class AccommodationCommandServiceImpl {
         return accommodationRepository.findById(query.getId());
     }
 
-    public Optional<Accommodation> getAccommodationById(com.backend.tripmate.accommodations.application.internal.queryservices.GetAccommodationByIdQuery query) {
-        return accommodationRepository.findById(query.getId());
-    }
-
     public Optional<Accommodation> handle(CreateAccommodationsCommand command) {
         if(accommodationRepository.existsByName(command.getName())) {
             throw new IllegalArgumentException("Accommodation with same name already exists");
