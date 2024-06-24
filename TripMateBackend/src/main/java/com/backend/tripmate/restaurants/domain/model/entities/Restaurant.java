@@ -15,10 +15,10 @@ public class Restaurant {
     @Column(name = "nombre", length = 50, nullable = false)
     private String name;
 
-    @Column(name = "imagePath", length = 500, nullable = false)
+    @Column(name = "imagePath", nullable = false)
     private String imagePath;
 
-    @Column(name = "locationCost", length = 500, nullable = false)
+    @Column(name = "locationCost", nullable = false)
     private String locationCost;
 
     @Column(name = "mustTry", length = 50, nullable = false)
