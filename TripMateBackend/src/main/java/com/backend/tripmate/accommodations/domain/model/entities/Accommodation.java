@@ -16,7 +16,7 @@ public class Accommodation {
     @Column(name = "nombre", length = 80, nullable = false)
     private String name;
 
-    @Column(name = "imagen", length = 500, nullable = false)
+    @Column(name = "imagen", nullable = false)
     private String imagePath;
 
     @Column(name = "descripcion", length = 1500, nullable = false)
