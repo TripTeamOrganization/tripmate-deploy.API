@@ -9,8 +9,10 @@ import com.backend.tripmate.accommodations.domain.model.entities.Accommodation;
 import com.backend.tripmate.accommodations.domain.model.queries.GetAllAccommodationsQuery;
 import com.backend.tripmate.accommodations.domain.services.AccommodationQueryService;
 import com.backend.tripmate.accommodations.interfaces.rest.resources.AccommodationResource;
+import com.backend.tripmate.accommodations.interfaces.rest.resources.CreateAccomodationsResource;
 import com.backend.tripmate.accommodations.interfaces.rest.resources.UpdateAccomodatonsResource;
 import com.backend.tripmate.accommodations.interfaces.rest.transform.AccommodationResourceFromEntityAssembler;
+import com.backend.tripmate.accommodations.interfaces.rest.transform.CreateAccomodationsCommandFromResourceAssembler;
 import com.backend.tripmate.accommodations.interfaces.rest.transform.UpdateAccomodationsCommandFromResourceAssembler;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,10 +56,12 @@ public class AccommodationController {
     }
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createAccommodation(@RequestBody CreateAccommodationsCommand command) {
+    public ResponseEntity<AccommodationResource> createAccommodation(@RequestBody CreateAccomodationsResource resource) {
         try {
-            accommodationCommandService.handle(command);
-            return ResponseEntity.status(HttpStatus.CREATED).build();
+            CreateAccommodationsCommand command = CreateAccomodationsCommandFromResourceAssembler.toCommandFromResource(resource);
+            var accommodation = accommodationCommandService.handle(command);
+            var accommodationResource = AccommodationResourceFromEntityAssembler.toResourceFromEntity(accommodation.get());
+            return ResponseEntity.status(HttpStatus.CREATED).body(accommodationResource);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().build();
         } catch (Exception e) {
@@ -67,7 +71,7 @@ public class AccommodationController {
     }
 
     @PutMapping(value = "/{id}", consumes = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> updateAccommodation(@PathVariable Long id, @RequestBody UpdateAccomodatonsResource resource) {
+    public ResponseEntity<AccommodationResource> updateAccommodation(@PathVariable Long id, @RequestBody UpdateAccomodatonsResource resource) {
         try {
             UpdateAccommodationsCommand command = UpdateAccomodationsCommandFromResourceAssembler.toCommandFromResource(id, resource);
             accommodationCommandService.handle(command);
