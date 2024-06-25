@@ -18,7 +18,6 @@ com\backend\tripmate\iam\domain\model\queries\GetUserByUsernameQuery.class
 com\backend\tripmate\reservation\domain\model\entities\PriceDetails.class
 com\backend\tripmate\restaurants\infrastructure\persistence\jpa\repositories\RestaurantRepository.class
 com\backend\tripmate\iam\interfaces\rest\resources\UserResource.class
-com\backend\tripmate\importabledata\MyImportServiceClient.class
 com\backend\tripmate\restaurants\domain\model\commands\UpdateRestaurantCommand.class
 com\backend\tripmate\restaurants\domain\model\commands\CreateRestaurantCommand.class
 com\backend\tripmate\iam\interfaces\rest\AuthenticationController.class
@@ -140,7 +139,6 @@ com\backend\tripmate\accommodations\interfaces\rest\transform\AccommodationResou
 com\backend\tripmate\activities\domain\model\entities\Activity.class
 com\backend\tripmate\shared\infrastructure\documentation\openapi\configuration\OpenApiConfiguration.class
 com\backend\tripmate\iam\interfaces\rest\UsersController.class
-com\backend\tripmate\importabledata\ImportService.class
 com\backend\tripmate\reservation\domain\model\commands\PaymentMethodInput.class
 com\backend\tripmate\iam\interfaces\acl\IamContextFacade.class
 com\backend\tripmate\accommodations\application\internal\commandservices\EnrollmentCommandServiceImpl.class

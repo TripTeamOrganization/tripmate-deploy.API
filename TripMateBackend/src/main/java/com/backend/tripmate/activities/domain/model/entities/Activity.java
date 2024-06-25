@@ -12,16 +12,16 @@ public class Activity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", length = 300, nullable = false)
+    @Column(name = "nombre", length = 50, nullable = false)
     private String name;
 
-    @Column(name = "imagen", nullable = false)
+    @Column(name = "imagen",length = 5000, nullable = false)
     private String imagePath;
 
-    @Column(name = "descripcion", length = 5000, nullable = false)
+    @Column(name = "descripcion",length = 5000, nullable = false)
     private String description;
 
-    @Column(name = "ubicacion", length = 5000, nullable = false)
+    @Column(name = "ubicacion",length = 5000, nullable = false)
     private String location;
 
     @Column(name = "precio", length = 50, nullable = false)
@@ -45,13 +45,5 @@ public class Activity {
         this.location = location;
         this.price = price;
         return this;
-    }
-
-    public Activity(String name, String imagePath, String description, String location, String price) {
-        this.name = name;
-        this.imagePath = imagePath;
-        this.description = description;
-        this.location = location;
-        this.price = price;
     }
 }
