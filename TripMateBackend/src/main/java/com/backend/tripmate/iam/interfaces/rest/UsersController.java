@@ -15,16 +15,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Controller for managing users.
+ *
+ * @author Adrian Jesus Palma Obispo
+ * @version 1.0
+ */
 @RestController
 @RequestMapping(value = "/api/v1/users", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Users", description = "User Management Endpoints")
 public class UsersController {
     private final UserQueryService userQueryService;
 
+    /**
+     * Constructor for UsersController.
+     *
+     * @param userQueryService the user query service
+     */
     public UsersController(UserQueryService userQueryService) {
         this.userQueryService = userQueryService;
     }
 
+    /**
+     * Get all users.
+     *
+     * @return a list of all users
+     */
     @GetMapping
     public ResponseEntity<List<UserResource>> getAllUsers() {
         var getAllUsersQuery = new GetAllUsersQuery();
@@ -33,6 +49,12 @@ public class UsersController {
         return ResponseEntity.ok(userResources);
     }
 
+    /**
+     * Get a user by its id.
+     *
+     * @param userId the id of the user
+     * @return the user with the given id
+     */
     @GetMapping("/{userId}")
     public ResponseEntity<UserResource> getUserById(@PathVariable Long userId) {
         var getUserByIdQuery = new GetUserByIdQuery(userId);

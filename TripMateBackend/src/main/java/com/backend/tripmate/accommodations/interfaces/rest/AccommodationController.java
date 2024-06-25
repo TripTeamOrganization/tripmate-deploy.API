@@ -22,6 +22,12 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+/**
+ * Controller for managing accommodations.
+ *
+ * @author Paolo Del Carmen Martinez Villanueva
+ * @version 1.0
+ */
 @RestController
 @RequestMapping(value = "/api/v1/accommodations", produces = APPLICATION_JSON_VALUE)
 public class AccommodationController {
@@ -29,11 +35,22 @@ public class AccommodationController {
     private final AccommodationQueryService accommodationQueryService;
     private final AccommodationCommandServiceImpl accommodationCommandService;
 
+    /**
+     * Constructor for AccommodationController.
+     *
+     * @param accommodationQueryService the accommodation query service
+     * @param accommodationCommandService the accommodation command service
+     */
     public AccommodationController(AccommodationQueryService accommodationQueryService, AccommodationCommandServiceImpl accommodationCommandService) {
         this.accommodationQueryService = accommodationQueryService;
         this.accommodationCommandService = accommodationCommandService;
     }
 
+    /**
+     * Get all accommodations.
+     *
+     * @return a list of all accommodations
+     */
     @GetMapping
     public ResponseEntity<List<AccommodationResource>> getAllAccommodations() {
         var getAllAccommodationsQuery = new GetAllAccommodationsQuery();
@@ -45,6 +62,12 @@ public class AccommodationController {
         return ResponseEntity.ok(accommodationResources);
     }
 
+    /**
+     * Get an accommodation by its id.
+     *
+     * @param id the id of the accommodation
+     * @return the accommodation with the given id
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Accommodation> getAccommodationById(@PathVariable Long id) {
         GetAccommodationByIdQuery query = new GetAccommodationByIdQuery(id);
@@ -55,6 +78,12 @@ public class AccommodationController {
         return ResponseEntity.ok(accommodation.get());
     }
 
+    /**
+     * Create a new accommodation.
+     *
+     * @param resource the accommodation resource
+     * @return a response entity with the status of the operation
+     */
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<AccommodationResource> createAccommodation(@RequestBody CreateAccomodationsResource resource) {
         try {
@@ -70,6 +99,13 @@ public class AccommodationController {
         }
     }
 
+    /**
+     * Update an accommodation.
+     *
+     * @param id the id of the accommodation
+     * @param resource the accommodation resource
+     * @return a response entity with the status of the operation
+     */
     @PutMapping(value = "/{id}", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<AccommodationResource> updateAccommodation(@PathVariable Long id, @RequestBody UpdateAccomodatonsResource resource) {
         try {
@@ -84,6 +120,12 @@ public class AccommodationController {
         }
     }
 
+    /**
+     * Delete an accommodation.
+     *
+     * @param id the id of the accommodation
+     * @return a response entity with the status of the operation
+     */
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteAccommodation(@PathVariable Long id) {
         try {

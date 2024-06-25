@@ -1,8 +1,6 @@
 package com.backend.tripmate.restaurants.interfaces.rest;
 
-import com.backend.tripmate.restaurants.domain.model.commands.CreateRestaurantCommand;
 import com.backend.tripmate.restaurants.domain.model.commands.DeleteRestaurantCommand;
-import com.backend.tripmate.restaurants.domain.model.entities.Restaurant;
 import com.backend.tripmate.restaurants.domain.model.queries.GetAllRestaurantsQuery;
 import com.backend.tripmate.restaurants.domain.model.queries.GetRestaurantByIdQuery;
 import com.backend.tripmate.restaurants.domain.services.RestaurantCommandService;
@@ -21,6 +19,12 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+/**
+ * Controller for managing restaurants.
+ *
+ * @author Leonel Alfaro Cumba
+ * @version 1.0
+ */
 @RestController
 @RequestMapping(value = "/api/v1/restaurants", produces = APPLICATION_JSON_VALUE)
 public class RestaurantController {
@@ -28,11 +32,23 @@ public class RestaurantController {
     private final RestaurantQueryService restaurantQueryService;
     private final RestaurantCommandService restaurantCommandService;
 
+    /**
+     * Constructor for RestaurantController.
+     *
+     * @param restaurantQueryService the restaurant query service
+     * @param restaurantCommandService the restaurant command service
+     */
     private RestaurantController(RestaurantQueryService restaurantQueryService, RestaurantCommandService restaurantCommandService) {
         this.restaurantQueryService = restaurantQueryService;
         this.restaurantCommandService = restaurantCommandService;
     }
 
+    /**
+     * Create a new restaurant.
+     *
+     * @param resource the restaurant resource
+     * @return a response entity with the status of the operation
+     */
     @PostMapping
     public ResponseEntity<RestaurantResource> createRestaurant(@RequestBody CreateRestaurantResource resource) {
         try {
@@ -49,6 +65,11 @@ public class RestaurantController {
 
     }
 
+    /**
+     * Get all restaurants.
+     *
+     * @return a list of all restaurants
+     */
     @GetMapping
     public ResponseEntity<List<RestaurantResource>> getAllRestaurants() {
         var getAllRestaurantsQuery = new GetAllRestaurantsQuery();
@@ -57,6 +78,12 @@ public class RestaurantController {
         return ResponseEntity.ok(restaurantResources);
     }
 
+    /**
+     * Get a restaurant by its id.
+     *
+     * @param restaurantId the id of the restaurant
+     * @return the restaurant with the given id
+     */
     @GetMapping("/{restaurantId}")
     public ResponseEntity<RestaurantResource> getRestaurantById(@PathVariable Long restaurantId) {
         var getRestaurantByIdQuery = new GetRestaurantByIdQuery(restaurantId);
@@ -66,6 +93,13 @@ public class RestaurantController {
         return ResponseEntity.ok(restaurantResource);
     }
 
+    /**
+     * Update a restaurant.
+     *
+     * @param restaurantId the id of the restaurant
+     * @param resource the restaurant resource
+     * @return a response entity with the status of the operation
+     */
     @PutMapping("/{restaurantId}")
     public ResponseEntity<RestaurantResource> updateCourse(@PathVariable Long restaurantId, @RequestBody UpdateRestaurantResource resource) {
         var updateRestaurantCommand = UpdateRestaurantCommandFromResourceAssembler.toCommandFromResource(restaurantId, resource);
@@ -75,6 +109,12 @@ public class RestaurantController {
         return ResponseEntity.ok(restaurantResource);
     }
 
+    /**
+     * Delete a restaurant.
+     *
+     * @param restaurantId the id of the restaurant
+     * @return a response entity with the status of the operation
+     */
     @DeleteMapping("/{restaurantId}")
     public ResponseEntity<?> deleteRestaurant(@PathVariable Long restaurantId) {
         var deleteRestaurantCommand = new DeleteRestaurantCommand(restaurantId);

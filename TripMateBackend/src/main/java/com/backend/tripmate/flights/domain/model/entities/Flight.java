@@ -10,8 +10,9 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idVuelo;
     private String nombreAerolinea;
+    @Column(name = "imagePath", length = 5000)
     private String imagePath;
-    @Column(name = "descripcion", nullable = false)
+    @Column(name = "descripcion", length = 5000)
     private String descripcion;
     private String precio;
 

@@ -17,26 +17,40 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-//el list de retorno:
 import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-//import io.swagger.v3.oas.annotations.tags.Tag;
 
+/**
+ * Controller for managing activities.
+ *
+ * @author Bárbara Antonella Espinoza Delgado
+ * @version 1.0
+ */
 @RestController
 @RequestMapping(value = "/api/v1/activities", produces = APPLICATION_JSON_VALUE)
-//@Tag(name = "Activities", description = "Activity Management Endpoints")
 public class ActivityController {
 
     private final ActivityQueryService activityQueryService;
     private final ActivityCommandService activityCommandService;
 
-
+    /**
+     * Constructor for ActivityController.
+     *
+     * @param activityCommandService the activity command service
+     * @param activityQueryService the activity query service
+     */
     public ActivityController(ActivityCommandService activityCommandService, ActivityQueryService activityQueryService) {
         this.activityCommandService = activityCommandService;
         this.activityQueryService = activityQueryService;
     }
 
+    /**
+     * Create a new activity.
+     *
+     * @param resource the activity resource
+     * @return a response entity with the status of the operation
+     */
     @PostMapping
     public ResponseEntity<ActivityResource> createActivity(@RequestBody CreateActivityResource resource) {
         try {
@@ -52,6 +66,11 @@ public class ActivityController {
         }
     }
 
+    /**
+     * Get all activities.
+     *
+     * @return a list of all activities
+     */
     @GetMapping
     public ResponseEntity<List<ActivityResource>> getAllActivities() {
         var getAllActivitiesQuery = new GetAllActivitiesQuery();
@@ -60,6 +79,12 @@ public class ActivityController {
         return ResponseEntity.ok(activityResources);
     }
 
+    /**
+     * Get an activity by its id.
+     *
+     * @param activityId the id of the activity
+     * @return the activity with the given id
+     */
     @GetMapping("/{activityId}")
     public ResponseEntity<ActivityResource> getActivityById(@PathVariable(name = "activityId") Long activityId) {
         var getActivitiesByIdQuery = new GetActivitiesByIdQuery(activityId);
@@ -71,6 +96,13 @@ public class ActivityController {
         return ResponseEntity.ok(activityResource);
     }
 
+    /**
+     * Update an activity.
+     *
+     * @param activityId the id of the activity
+     * @param resource the activity resource
+     * @return a response entity with the status of the operation
+     */
     @PutMapping("/{activityId}")
     public ResponseEntity<ActivityResource> updateActivity(@PathVariable Long activityId, @RequestBody UpdateActivityResource resource) {
         var updateActivityCommand = UpdateActivityCommandFromResourceAssembler.toCommandFromResource(activityId, resource);
@@ -82,6 +114,12 @@ public class ActivityController {
         return ResponseEntity.ok(activityResource);
     }
 
+    /**
+     * Delete an activity.
+     *
+     * @param activityId the id of the activity
+     * @return a response entity with the status of the operation
+     */
     @DeleteMapping("/{activityId}")
     public ResponseEntity<?> deleteActivity(@PathVariable Long activityId) {
         var deleteActivityCommand = new DeleteActivityCommand(activityId);

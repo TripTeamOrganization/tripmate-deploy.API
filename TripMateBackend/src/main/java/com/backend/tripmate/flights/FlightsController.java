@@ -19,21 +19,37 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+/**
+ * Controller for managing flights.
+ *
+ * @author Adian Jesus Palma Obispo
+ * @version 1.0
+ */
 @RestController
 @RequestMapping(value = "/api/v1/flights", produces = APPLICATION_JSON_VALUE)
 public class FlightsController {
     private final FlightQueryService flightQueryService;
     private final FlightCommandServiceImpl flightCommandServiceImpl;
 
+    /**
+     * Constructor for FlightsController.
+     *
+     * @param flightQueryService the flight query service
+     * @param flightCommandServiceImpl the flight command service implementation
+     */
     public FlightsController(FlightQueryService flightQueryService, FlightCommandServiceImpl flightCommandServiceImpl) {
         this.flightQueryService = flightQueryService;
         this.flightCommandServiceImpl = flightCommandServiceImpl;
     }
 
+    /**
+     * Get all flights.
+     *
+     * @return a list of all flights
+     */
     @GetMapping
     public ResponseEntity<List<FlightResource>> getAllFlights() {
         var getAllFlightsQuery = new GetAllFlightsQuery();
@@ -42,6 +58,12 @@ public class FlightsController {
         return ResponseEntity.ok(flightResources);
     }
 
+    /**
+     * Get a flight by its id.
+     *
+     * @param id the id of the flight
+     * @return the flight with the given id
+     */
     @GetMapping("/{id}")
     public ResponseEntity<FlightResource> getFlightById(@PathVariable Integer id) {
         var getFlightByIdQuery = new GetFlightByIdQuery(id);
@@ -53,6 +75,12 @@ public class FlightsController {
         return ResponseEntity.ok(flightResource);
     }
 
+    /**
+     * Create a new flight.
+     *
+     * @param resource the flight resource
+     * @return a response entity with the status of the operation
+     */
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> createFlight(@RequestBody CreateFlightResource resource) {
         try {
@@ -67,6 +95,13 @@ public class FlightsController {
         }
     }
 
+    /**
+     * Update a flight.
+     *
+     * @param id the id of the flight
+     * @param resource the flight resource
+     * @return a response entity with the status of the operation
+     */
     @PutMapping(value = "/{id}", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateFlight(@PathVariable Integer id, @RequestBody UpdateFlightResource resource) {
         try {
@@ -81,6 +116,12 @@ public class FlightsController {
         }
     }
 
+    /**
+     * Delete a flight.
+     *
+     * @param id the id of the flight
+     * @return a response entity with the status of the operation
+     */
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteFlight(@PathVariable Integer id) {
         try {

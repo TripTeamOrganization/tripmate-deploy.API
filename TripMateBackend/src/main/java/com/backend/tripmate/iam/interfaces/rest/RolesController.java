@@ -13,16 +13,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Controller for managing roles.
+ *
+ * @author Adrian Jesus Palma Obispo
+ * @version 1.0
+ */
 @RestController
 @RequestMapping(value = "/api/v1/roles", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Roles", description = "Role Management Endpoints")
 public class RolesController {
     private final RoleQueryService roleQueryService;
 
+    /**
+     * Constructor for RolesController.
+     *
+     * @param roleQueryService the role query service
+     */
     public RolesController(RoleQueryService roleQueryService) {
         this.roleQueryService = roleQueryService;
     }
 
+    /**
+     * Get all roles.
+     *
+     * @return a list of all roles
+     */
     @GetMapping
     public ResponseEntity<List<RoleResource>> getAllRoles() {
         var getAllRolesQuery = new GetAllRolesQuery();
