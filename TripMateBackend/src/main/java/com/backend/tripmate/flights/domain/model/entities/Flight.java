@@ -14,7 +14,7 @@ public class Flight {
     private String nombreAerolinea;
     private String imagePath;
 
-    @Column(name = "descripcion", nullable = false, length = 1500)
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
     private String precio;

@@ -12,16 +12,16 @@ public class Activity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nombre", length = 50, nullable = false)
+    @Column(name = "nombre", length = 300, nullable = false)
     private String name;
 
     @Column(name = "imagen", nullable = false)
     private String imagePath;
 
-    @Column(name = "descripcion", length = 250, nullable = false)
+    @Column(name = "descripcion", length = 5000, nullable = false)
     private String description;
 
-    @Column(name = "ubicacion", length = 150, nullable = false)
+    @Column(name = "ubicacion", length = 5000, nullable = false)
     private String location;
 
     @Column(name = "precio", length = 50, nullable = false)
